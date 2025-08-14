@@ -1,6 +1,9 @@
 spring:
   application:
     name: Spring-data-JPA
+  #sql:
+    #init:
+     #mode: always
   datasource:
     url: jdbc:mysql://localhost:3306/springjpa
     username: root
@@ -8,10 +11,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-     ddl-auto: create
+     ddl-auto: update
      naming:
        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+    defer-datasource-initialization: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
