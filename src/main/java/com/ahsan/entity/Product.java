@@ -18,7 +18,7 @@ public class Product
         private int id;
         private String name;
         private double price;
-        @Column(name="Desc")
+        @Column(name="DESCRIPTION123")
         private String description;
         private String productType;
 }
