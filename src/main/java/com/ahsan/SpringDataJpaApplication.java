@@ -1,4 +1,4 @@
-package com.ahsan.Spring_data_JPA;
+package com.ahsan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

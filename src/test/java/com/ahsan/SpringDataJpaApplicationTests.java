@@ -1,4 +1,4 @@
-package com.ahsan.Spring_data_JPA;
+package com.ahsan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
