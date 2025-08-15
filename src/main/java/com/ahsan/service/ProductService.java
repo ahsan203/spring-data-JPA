@@ -83,4 +83,29 @@ public class ProductService {
         System.out.print("Number of Records after deletion : " );
         return repository.count();
     }
+
+    //----- using IN of SQL------ SELECT * FROM product_table WHERE price IN (300,500,5500);
+    public List<Product> getproductByMultiplePriceValues(List<Double> prices)
+    {
+        return repository.findByPriceIn(prices);
+    }
+
+    //------- using BETWEEN of SQL --- SELECT * FROM springjpa.product_table where price between 300 AND 1000;
+    public List<Product> getProductsByPricesBetween(double value1, double value2)
+    {
+        return repository.findByPriceBetween(value1,value2);
+    }
+
+    //---- using LessThan and GreaterThan of SQL:
+    public List<Product> getProductsWithHigherPrices(double price)
+    {
+        return repository.findByPriceGreaterThan(price);
+    }
+
+    public List<Product> getProductsWithLowerPrices(double price)
+    {
+        return repository.findByPriceLessThan(price);
+    }
+
+
 }
