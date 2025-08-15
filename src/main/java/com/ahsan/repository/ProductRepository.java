@@ -34,5 +34,5 @@ public interface ProductRepository extends JpaRepository<Product,Integer>
 
 
     //--------- SQL Like Operator :
-        List<Product> findByPriceLike(String likeString);
+        List<Product> findByNameIgnoreCaseContaining(String likeString);
 }

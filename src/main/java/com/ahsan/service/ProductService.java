@@ -107,5 +107,8 @@ public class ProductService {
         return repository.findByPriceLessThan(price);
     }
 
-
+    public List<Product> getProductsWithLike(String likeString)
+    {
+        return repository.findByNameIgnoreCaseContaining(likeString);
+    }
 }
