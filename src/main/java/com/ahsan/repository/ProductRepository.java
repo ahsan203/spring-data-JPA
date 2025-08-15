@@ -1,7 +1,6 @@
 package com.ahsan.repository;
 
 import com.ahsan.entity.Product;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

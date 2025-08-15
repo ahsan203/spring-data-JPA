@@ -1,0 +1,31 @@
+SELECT * FROM springjpa.product_table;
+
+insert into product_table (price,DESCRIPTION123,name,productType)
+values
+(1400,"KODAK Company","Kodak DSLR","Electronics");
+
+ => IN :  WE USE IN when we want to give where condition as multiple same-column-values:
+ -----------------------------------------------------------------------------------
+      SELECT * FROM product_table WHERE DESCRIPTION123 IN ('Samsung Company','Rado Watch for Men','Bobs Furniture');
+
+
+=> LIKE : In SQL, the LIKE operator is used in a WHERE clause to search for a pattern in a column:
+--------------------------------------------------------------------------------------------------
+      SELECT * FROM product_table WHERE NAME LIKE '%DSLR';
+
+
+=> Between :
+-------------
+          SELECT * FROM springjpa.product_table where price between 300 AND 1000;
+
+
+
+=> LESS-THAN, GREATER-THAN :
+-----------------------------
+           SELECT * FROM springjpa.product_table where price >=500 AND id <=5;
+
+
+
+=> ORDER By : It is used for Sorting the Column:
+-------------------------------------------------
+           SELECT * FROM springjpa.product_table ORDER BY PRICE DESC;
