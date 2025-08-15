@@ -78,4 +78,38 @@ public class ProductController
 
         return service.deleteProduct(pid);
     }
+
+
+    //---------------------- Using SQL operators : --------------------------------
+
+    @PostMapping("/product-based-prices")
+    public List<Product> getproductByMultiplePriceValues(@RequestBody List<Double> prices)
+    {
+        return service.getproductByMultiplePriceValues(prices);
+    }
+
+    //------- using BETWEEN of SQL --- SELECT * FROM springjpa.product_table where price between 300 AND 1000;
+    @GetMapping("/getProducts-ByRange/{value1}/{value2}")
+    public List<Product> getProductsByPricesBetween(@PathVariable double value1,@PathVariable double value2)
+    {
+        return service.getProductsByPricesBetween(value1,value2);
+    }
+
+    //---- using LessThan and GreaterThan of SQL:
+    @GetMapping("/product-filtering-higher-prices/{price}")
+    public List<Product> getProductsWithHigherPrices(@PathVariable double price)
+    {
+        return service.getProductsWithHigherPrices(price);
+    }
+    @GetMapping("/product-filtering-lower-prices/{price}")
+    public List<Product> getProductsWithLowerPrices(@PathVariable double price)
+    {
+        return service.getProductsWithLowerPrices(price);
+    }
+
+    @GetMapping("/product-filtering-by-name/{likeString}")
+    public List<Product> getProductsWithLike(@PathVariable String likeString)
+    {
+        return service.getProductsWithLike(likeString);
+    }
 }
