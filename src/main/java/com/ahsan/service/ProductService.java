@@ -3,6 +3,9 @@ package com.ahsan.service;
 import com.ahsan.entity.Product;
 import com.ahsan.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -110,5 +113,30 @@ public class ProductService {
     public List<Product> getProductsWithLike(String likeString)
     {
         return repository.findByNameIgnoreCaseContaining(likeString);
+    }
+
+
+    //------- Sorting & Pagination : Similarly in SQL we have = ORDER BY & Limit Offset -------------------
+
+            //------- Sorting in JPA we use by overloaded findAll(Sort sort) method :-------------
+    public List<Product> getProductsWithSorting(String fieldName)
+    {
+        return repository.findAll(Sort.by(Sort.Direction.ASC,fieldName));
+    }
+
+            //-------- Pagination in JPA : we use again findAll(Pageable pageable) method : ---------------
+    public Page<Product> getProductsWithPageResponse(int offset, int limit)
+    {
+        return repository.findAll(PageRequest.of(offset,limit));
+    }
+
+
+
+    //---------- Using Sorting and Pagination together
+    public Page<Product> getProductsWithSortingAndPagination(String fieldName, int offset, int limit)
+    {
+        List<Product> sortedProducts = repository.findAll(Sort.by(Sort.Direction.ASC,fieldName));
+
+        return repository.findAll(PageRequest.of(offset,limit));
     }
 }

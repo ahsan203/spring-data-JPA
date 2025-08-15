@@ -3,6 +3,9 @@ package com.ahsan.controller;
 import com.ahsan.entity.Product;
 import com.ahsan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -111,5 +114,27 @@ public class ProductController
     public List<Product> getProductsWithLike(@PathVariable String likeString)
     {
         return service.getProductsWithLike(likeString);
+    }
+
+
+
+    //--------- Sorting & Pagination in JPA : ------------
+
+    @GetMapping("/product-sorting/{fieldName}")
+    public List<Product> getProductsWithSorting(@PathVariable String fieldName)
+    {
+        return service.getProductsWithSorting(fieldName);
+    }
+
+    @GetMapping("/page-limit/{offset}/{limit}")
+    public Page<Product> getProductsWithPageResponse(@PathVariable int offset, @PathVariable int limit)
+    {
+        return service.getProductsWithPageResponse(offset,limit);
+    }
+
+    @GetMapping("/product-sorting-and-limit/{fieldName}/{offset}/{limit}")
+    public Page<Product> getProductsWithSortingAndPagination(@PathVariable String fieldName, @PathVariable int offset, @PathVariable int limit)
+    {
+        return service.getProductsWithSortingAndPagination(fieldName,offset,limit);
     }
 }
