@@ -29,3 +29,12 @@ values
 => ORDER By : It is used for Sorting the Column:
 -------------------------------------------------
            SELECT * FROM springjpa.product_table ORDER BY PRICE DESC;
+
+
+
+=> Pagination : It means showing data in smaller chunks (pages) instead of all rows at once : USING LIMIT & OFFSET
+--------------------------------------------------------------------------------------------------------------------
+-- Pagination by using LIMIT and OFFSET :
+                select * from product_table LIMIT 3 OFFSET 0;
+                select * from product_table LIMIT 3 OFFSET 3;
+                select * from product_table LIMIT 3 OFFSET 6;
