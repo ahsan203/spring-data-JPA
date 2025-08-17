@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product,Integer>
     List<Product> findByPriceAndProductType(double price, String productType);
 
 
-    @Query(value = "SELECT * FROM Product_Table WHERE price=?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM Product_Table WHERE price=?1", nativeQuery = true)
     List<Product> getProductByPrice(double price);
 
 
