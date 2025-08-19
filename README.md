@@ -82,7 +82,7 @@ CREATE TABLE StudentCourse (
 SQL-Interview Questions :
 -------------------------
 1) second highest price in a table :
---------------------------------------
+------------------------------------
 select Max(price) from springjpa.product_table
 where
 price < (select Max(price) from springjpa.product_table);
