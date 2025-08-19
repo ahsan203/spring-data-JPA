@@ -79,7 +79,7 @@ CREATE TABLE StudentCourse (
     PRIMARY KEY (student_id, course_id) -- composite key
 );
 
-SQL-Interview Questions :
+SQL-Interview Qusestions :
 -------------------------
 -- second highest price in a table
 select Max(price) from springjpa.product_table
